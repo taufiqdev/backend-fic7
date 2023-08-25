@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'name'=>'Taufiq B',
             'email'=>'taufiqb@gmail.com',
             'email_verified_at'=>now(),
+            'role'=>'admin',
             'password'=>'12345',
         ]);
 
