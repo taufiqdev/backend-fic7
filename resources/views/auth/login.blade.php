@@ -13,7 +13,6 @@
         <div class="card-header">
             <h4>Login</h4>
         </div>
-        {{ route() }}
 
         <div class="card-body">
             <form method="POST"
