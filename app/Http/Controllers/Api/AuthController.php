@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
-//use App\Http\Resources\UserResource;
+use App\Http\Resources\UserResource;
 
 class AuthController extends Controller
 {

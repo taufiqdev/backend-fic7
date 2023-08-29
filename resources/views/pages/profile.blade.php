@@ -2,13 +2,17 @@
 
 @section('title', 'Profile')
 
+
 @push('style')
+
+
     <!-- CSS Libraries -->
     <link rel="stylesheet"
         href="{{ asset('library/summernote/dist/summernote-bs4.css') }}">
     <link rel="stylesheet"
         href="{{ asset('library/bootstrap-social/assets/css/bootstrap.css') }}">
 @endpush
+
 
 @section('main')
     <div class="main-content">
@@ -95,6 +99,7 @@
                                                 @error('password', 'updatePassword')
                                                 <div class="invalid-feedback">
                                                   {{ $message }}
+                                                  {{ route('')}}
                                                 </div>
                                                 @enderror
                                         </div>

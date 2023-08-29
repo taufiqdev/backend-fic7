@@ -22,7 +22,9 @@ Route::get('/', function () {
 Route::get('/', function () {
     //return view('auth.login', ['type_menu'=>'' ]);
     return view('auth.login');
+
 });
+
 
 Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('home', function(){
@@ -36,6 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
 
     Route::resource('user', UserController::class);
 });
+
 
 /* Route::get('/a', function () {
     return view('pages.blank-page', ['type_menu' => '']);
