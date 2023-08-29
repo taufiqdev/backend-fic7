@@ -36,22 +36,33 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+        $category->load('products');
         return $category;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update(
+            $request->validate([
+                'name' => 'required|string|max:20',
+                'description' => 'required',
+            ])
+
+        );
+
+        return $category;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return response(status: 204);
     }
 }
