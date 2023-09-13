@@ -7,15 +7,29 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Resources\ProductResource;
 
+
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
             //return Product::paginate(10);
-            return ProductResource::collection(Product::paginate(10));
+            
+            /* $categoryId = $request->input('category_id');
+            $products = Product::when(
+                $categoryId,
+                fn ($query, $categoryId) => $query->categoryId($categoryId)
+            )->paginate()->load('category');
+             */
+            $categoryId=$request->input('category_id');
+            //dd($categoryId);
+            $products=Product::when (
+                $categoryId, fn($query, $categoryId)=>$query->categoryId($categoryId)
+            )->paginate()->load('category');
+            //return ProductResource::collection(Product::paginate(10));
+            return ProductResource::collection($products);
     }
 
     /**
