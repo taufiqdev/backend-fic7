@@ -36,5 +36,6 @@ Route::post('orders',[OrderController::class, 'order'])->middleware('auth:sanctu
 Route::post('midtrans/notification/handling',[CallbackController::class, 'callback']);
 
 Route::apiResource('categories',CategoryController::class);
+Route::apiResource('banner',BannerController::class);
 Route::apiResource('products',ProductController::class);
 //Route::apiResource('order',OrderController::class);
