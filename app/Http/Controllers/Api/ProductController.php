@@ -24,11 +24,13 @@ class ProductController extends Controller
             )->paginate()->load('category');
              */
             $categoryId=$request->input('category_id');
-            //dd($categoryId);
-            $products=Product::when (
-                $categoryId, fn($query, $categoryId)=>$query->categoryId($categoryId)
-            )->paginate()->load('category');
-            //return ProductResource::collection(Product::paginate(10));
+            $userId=$request->input('user_id');
+            /* $products=Product::when (
+                $categoryId, fn($query, $categoryId, $userId)=>$query->categoryId($categoryId, $userId)
+            )->paginate()->load('category', 'user'); */
+            $products=Product::where('category_id', 'LIKE', '%'.$categoryId.'%')
+            ->where('user_id', 'LIKE', '%'.$userId.'%')->paginate()->load('category', 'user');
+            
             return ProductResource::collection($products);
     }
 
