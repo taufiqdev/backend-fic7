@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function order(Request $request) {
 
         $order=Order::create([
-            'user_id' =>1,
+            'user_id' => $request->user()->id,
             'seller_id' => $request->seller_id,
             'number' => time(),
             'total_price'=> $request->total_price,

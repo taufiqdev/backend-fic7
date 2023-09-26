@@ -10,6 +10,7 @@ use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
+ 
     /**
      * Display a listing of the resource.
      */
@@ -48,7 +49,7 @@ class ProductController extends Controller
             'image_url' =>'required',
             'category_id' =>'required',
         ]),
-        'user_id'=>1,
+        'user_id'=> $request->user()->id,
       ]);
 
       return $product;
